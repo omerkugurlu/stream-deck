@@ -1,40 +1,45 @@
-# 🚀 Handheld Controller & System Manager (Steam Deck & Switch)
+# 🎛️ Ömer Stream Deck v4.5 (Mini Makro Klavye)
 
-[![GitHub license](https://img.shields.io/github/license/mashape/apistore.svg?style=flat-flat)]()
-[![Platform Support](https://img.shields.io/badge/platform-Steam%20Deck%20%7C%20Nintendo%20Switch-critical.svg)]()
+CustomTkinter arayüzü ile güçlendirilmiş, donanımsal mini klavyenizi (Arduino, Raspberry Pi Pico vb.) tamamen özelleştirilebilir bir **Stream Deck** kontrol merkezine dönüştüren modern bir Python uygulamasıdır.
 
-Bu proje, **Steam Deck** ve **Nintendo Switch** gibi taşınabilir oyun konsollarının **donanım entegrasyonunu**, **özelleştirilmiş kontrolcü haritalamalarını** ve **sistem optimizasyonlarını** tek bir çatı altında toplayan açık kaynaklı bir platformdur. 
-
-Cihazlar arası **senkronizasyon**, **cross-platform API iletişimleri** ve **gelişmiş taşınabilir oyun deneyimi** sunmayı hedefler.
+Bu proje; seri port üzerinden gelen donanım sinyallerini yakalar ve bilgisayarınızda **Medya Kontrolü**, **OBS Studio Yönetimi**, **Uygulama Çalıştırma** veya **Web Sitesi Açma** gibi dinamik görevleri tetikler.
 
 ---
 
-## 📌 Öne Çıkan Özellikler
+## 📸 Ekran Görüntüleri
 
-* **🎮 Gelişmiş Kontrolcü Eşleştirme:** Steam Deck ve Switch buton konfigürasyonlarını **dinamik olarak algılama** ve yeniden haritalandırma.
-* **🔌 IoT ve Donanım Entegrasyonu:** Taşınabilir konsollar ile harici donanımların/sensörlerin iletişim kurmasını sağlayan **düşük gecikmeli protokoller**.
-* **📊 Sistem İzleme & Optimizasyon:** Cihazların **batarya durumu**, **sıcaklık değerleri** ve **performans profillerini** anlık olarak takip etme.
-* **🌐 Cross-Platform Mimari:** Hem Linux tabanlı (SteamOS) hem de özel kütüphanelerle entegre çalışabilen **modüler kod yapısı**.
+### Ana Kontrol Paneli
+![Ana Ekran](yazilim_arayuzu.png)
+*Modern CustomTkinter arayüzü ile 4 farklı tuşu anlık olarak takip edin ve yönetin.*
 
----
-
-## 🛠️ Kullanılan Teknolojiler
-
-Projenin altyapısı yüksek performans, esneklik ve hızlı veri işleme odaklı teknolojilerle geliştirilmiştir:
-
-| Katman | Teknoloji / Kütüphane | Görevi |
-| :--- | :--- | :--- |
-| **Backend & Mantık** | Python / C++ | **Donanım seviyesinde iletişim** ve veri işleme |
-| **Arayüz & Mobil** | React Native / Flutter | **Çoklu platform desteği** ve kullanıcı paneli |
-| **Gömülü Sistemler** | Arduino / ESP8266 (C++) | Harici donanım kontrolü ve **NFC/RFID tetikleyicileri** |
-| **Veri İletişimi** | P2P / REST API | Cihazlar arası **senkronizasyon ve hızlı veri aktarımı** |
+### Tuş Yapılandırma Penceresi
+![Tuş Ayarları](tus_ayari.png)
+*Medya, OBS ve Sistem sekmeleri arasında geçiş yaparak tek tıkla görev atayın.*
 
 ---
 
-## 📁 Proje Yapısı
+## ✨ Öne Çıkan Özellikler
 
-```text
-├── config/               # Cihaz bazlı (Deck/Switch) konfigürasyon dosyaları
-├── docs/                 # Teknik dokümantasyon ve şemalar
-├── docs/                 # Teknik dokümantasyon ve şemalar
-└── README.md             # Proje ana tanıtım belgesi
+* **🎨 Modern UI:** Tamamen karanlık mod (Dark Mode) uyumlu, şık ve minimalist tasarım.
+* **⚡ Kesintisiz Seri Port Dinleme:** Arka planda donanımınızı kesintisiz dinleyen asenkron `threading` yapısı.
+* **🎥 Akıllı OBS Entegrasyonu:** OBS kapalı olsa bile uygulamanın çökmesini engelleyen özel timeout koruması.
+* **📌 Sistem Tepsisi (Tray Icon):** Uygulamayı kapattığınızda tamamen kapanmaz, arka planda küçülerek çalışmaya devam eder.
+* **💾 Kalıcı Hafıza:** Tüm ayarlar anında `deck_v3_ayarlar.json` dosyasına kaydedilir.
+
+---
+
+## 🛠️ Donanım Bağlantısı Nasıl Yapılır?
+
+Fiziksel butonlarınızı Arduino veya benzeri bir karta aşağıdaki şemaya uygun olarak bağlamanız gerekir. Kartınız, butona basıldığında bilgisayara seri port üzerinden `TUS_1`, `TUS_2`, `TUS_3`, `TUS_4` metinlerini göndermelidir.
+
+![Donanım Şeması](arduino_sema.png)
+
+---
+
+## 🚀 Adım Adım Kurulum Kılavuzu
+
+### 1. Gereksinimlerin Yüklenmesi
+Bilgisayarınızda Python 3.x kurulu olduğundan emin olun. Ardından terminal veya komut satırını açarak aşağıdaki komutla gerekli tüm kütüphaneleri tek seferde yükleyin:
+
+```bash
+pip install customtkinter pyserial pyautogui obsws-python pillow pystray
