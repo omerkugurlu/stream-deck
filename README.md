@@ -9,7 +9,7 @@ Bu proje; seri port üzerinden gelen donanım sinyallerini yakalar ve bilgisayar
 ## 📸 Ekran Görüntüleri
 
 ### Ana Kontrol Paneli
-![Ana Ekran]([yazilim_arayuzu.png](https://i.ibb.co/kg1F3Kkm/image.png))
+![Ana Ekran](https://i.ibb.co/kg1F3Kkm/image.png)
 *Modern CustomTkinter arayüzü ile 4 farklı tuşu anlık olarak takip edin ve yönetin.*
 
 ---
